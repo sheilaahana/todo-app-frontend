@@ -1,7 +1,7 @@
-const API_URL = 'http://localhost:4000/api/';
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const fetchTodos = async () => {
-  const response = await fetch(API_URL+'todos');
+  const response = await fetch(API_URL+'/todos');
   if (!response.ok) {
     throw new Error('Failed to fetch todos');
   }
@@ -9,7 +9,7 @@ export const fetchTodos = async () => {
 };
 
 export const createTodo = async (todo) => {
-  const response = await fetch(API_URL+'todos', {
+  const response = await fetch(API_URL+'/todos', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(todo),
@@ -21,7 +21,7 @@ export const createTodo = async (todo) => {
 };
 
 export const updateTodo = async (todo) => {
-  const response = await fetch(`${API_URL}todos/${todo.id}`, {
+  const response = await fetch(`${API_URL}/todos/${todo.id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(todo),
@@ -33,7 +33,7 @@ export const updateTodo = async (todo) => {
 };
 
 export const deleteTodo = async (id) => {
-  const response = await fetch(`${API_URL}todos/${id}`, {
+  const response = await fetch(`${API_URL}/todos/${id}`, {
     method: 'DELETE',
   });
   if (!response.ok) {
@@ -42,7 +42,7 @@ export const deleteTodo = async (id) => {
 };
 
 export const completeTodo = async (id) => {
-  const response = await fetch(`${API_URL}todos/toggle/${id}`, {
+  const response = await fetch(`${API_URL}/todos/toggle/${id}`, {
     method: 'PUT',
   });
   
