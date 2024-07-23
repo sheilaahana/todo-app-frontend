@@ -7,7 +7,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app-container {
+  text-align : center;
+  padding : 20px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: gray; /* Optional: Change color for better visibility */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.list-todo {
+  height: 500px;
+  overflow-y: auto;
 }
