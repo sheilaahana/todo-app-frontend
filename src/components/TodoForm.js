@@ -15,8 +15,6 @@ const TodoForm = () => {
       ...formData,
       [name]: value,
     });
-    console.log('Form Data Submitted:', formData);
-
   };
 
   const handleSubmit = (event) => {
@@ -38,7 +36,6 @@ const TodoForm = () => {
             placeholder="What To Do"
             className="form-control"
             required
-            // value={formData.name}
             onChange={handleChange}
           />
         </div>

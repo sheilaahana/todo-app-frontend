@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTodos, removeTodo, editTodo } from '../modules/todos/todosSlice';
+import { getTodos } from '../modules/todos/todosSlice';
 import TodoItem from '../components/TodoItem';
 
 
@@ -9,7 +10,6 @@ const TodoList = () => {
   const dispatch = useDispatch();
   const { todos, status, error } = useSelector(state => state.todos);
 
-  // State to manage the selected filter
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
@@ -18,7 +18,6 @@ const TodoList = () => {
     }
   }, [dispatch, status]);
 
-  // Filter todos based on the selected filter
   const filteredTodos = todos.filter(todo => {
     if (filter === 'active') {
       return todo.is_complete === 0;
@@ -26,10 +25,9 @@ const TodoList = () => {
     if (filter === 'completed') {
       return todo.is_complete === 1;
     }
-    return true; // 'all' filter
+    return true; 
   });
 
-  // Handler for filter changes
   const handleFilterChange = (newFilter) => {
     setFilter(newFilter);
   };

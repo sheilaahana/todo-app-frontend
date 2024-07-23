@@ -7,11 +7,9 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')  // Ensure the ID matches the one in your HTML
+  document.getElementById('root')
 );
