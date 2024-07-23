@@ -16,6 +16,7 @@ const TodoItem = ({ todo }) => {
 
   const handleComplete = () => {
     dispatch(toggleTodo(todo.id));
+    window.location.reload();
   };
 
   const handleEdit = () => {
@@ -28,6 +29,7 @@ const TodoItem = ({ todo }) => {
       todo: newTodo,
     }));
     setIsEditing(false);
+    window.location.reload();
   };
 
   const handleCancel = () => {
